@@ -1,0 +1,42 @@
+<div class="navbar bg-base-100 px-5 fixed top-0 z-50">
+    <div class="navbar-start items-center">
+        <i data-lucide="zap" class=""></i>
+        <span class=" zain-regular">Thunderbolt</span>
+        <span class="badge badge-primary text-primary-content ml-2 zain-bold pt-1">
+            <%= title %>
+        </span>
+    </div>
+    <div class="navbar-end">
+        <label class="swap swap-rotate mr-4 btn btn-ghost btn-circle btn-theme">
+            <!-- this hidden checkbox controls the state -->
+            <input type="checkbox" onchange="changeTheme()" />
+            <!-- sun icon -->
+            <i class="sun h-5 w-5 fill-current" data-lucide="sun"></i>
+            <!-- moon icon -->
+            <i class="moon h-5 w-5 fill-current" data-lucide="moon"></i>
+        </label>
+        <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                <div class="w-10 mask mask-squircle">
+                    <img id="avatar_navbar" src="images/avatars/default.png" />
+                </div>
+            </div>
+            <ul tabindex="0"
+                class="header-menu menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-80 p-2 shadow-xl"
+                data-theme="light">
+                <div class="flex my-2 mx-2 items-center">
+                    <div class="flex-none"><img id="avatar_dropdown" class="w-12 h-12 mask mask-squircle" src="images/avatars/default.png" /></div>
+                    <div class="flex-1 ml-2">
+                        <p id="navMenuName" class="text-md"><%= user.displayName %></p>
+                        <p class="text-[12px] opacity-60"><%= user.email %></p>
+                    </div>
+                </div>
+                <div class="divider m-0"></div>
+                <li><a class="py-2" href="/profile"><i data-lucide="user"></i> Profile</a></li>
+                <li ><a class="py-2" href="/settings"><i data-lucide="settings"></i> Settings</a></li>
+                <div class="divider m-0"></div>
+                <li ><a class="py-2 text-error" href="/login/logout" ><i data-lucide="log-out"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

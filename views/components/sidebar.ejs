@@ -1,0 +1,26 @@
+<div class="flex-none fixed top-18 left-5 z-50">
+    <ul class="menu bg-base-200 rounded-box py-25" data-theme="dark">
+        <li class="mb-2 mask mask-squircle <%= (title == 'Dashboard')? 'active' :'' %> ">
+            <a class="tooltip tooltip-right " data-tip="Home" href="/dashboard">
+                <i class="h-5 w-5" data-lucide="layout-dashboard"></i>
+            </a>
+        </li>
+        <li class="mb-2 mask mask-squircle <%= (title == 'Namelist')? 'active' :'' %>">
+            <a class="tooltip tooltip-right" data-tip="Namelist" href="/namelist">
+                <i class="h-5 w-5" data-lucide="book-user"></i>
+            </a>
+        </li>
+        <li class="mb-2 mask mask-squircle <%= (title == 'KIV')? 'active' :'' %>">
+            <a class="tooltip tooltip-right" data-tip="KIV" href="/kiv">
+                <i class="h-5 w-5" data-lucide="eye"></i>
+            </a>
+        </li>
+        <li class="mb-2 mask mask-squircle <%= (title == 'Late Latif')? 'active' :'' %>">
+            <a class="tooltip tooltip-right" data-tip="Late Latif" href="/latelatif">
+                <i class="h-5 w-5" data-lucide="snail"></i>
+            </a>
+        </li>
+        
+
+    </ul>
+</div>

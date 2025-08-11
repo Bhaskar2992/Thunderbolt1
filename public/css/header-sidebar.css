@@ -1,0 +1,33 @@
+.active a {
+  background-color: #475267;
+  color: #fff;
+}
+
+.zain-regular {
+  font-family: "Zain", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.zain-bold {
+  font-family: "Zain", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  /* font-size: 20px; */
+}
+
+.navbar-end .btn-theme{
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.navbar-end .dropdown-content .lucide{
+  width: 16px !important;
+  height: 16px !important;
+}
+
+input[type=password]:focus, input[type=text]:focus, input[type=email]:focus {
+ border: none !important;
+}
+

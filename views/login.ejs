@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>
+		Login - Thunderbolt
+	</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+	<!-- <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+
+</head>
+
+<body>
+
+
+	<div class="container-login">
+		<div class="card card-border bg-base-100 w-230 mx-auto shadow-xl" data-theme="light" >
+			<div class="card-body pb-20 pt-15">
+				<div class="flex w-full items-center justify-center">
+					<div class="flex-none">
+						<i data-lucide="zap" class=""></i>
+					</div>
+					<div class="flex-none">
+						<span class="text-2xl">Thunderbolt</span>
+					</div>
+				</div>
+				<div class="flex w-full mt-8 items-center px-20">
+					<div class="flex-1">
+						<img class="h-100" src="images/lion1.png" alt="IMG">
+					</div>
+					<div class="flex-1">
+						<div class="tabs tabs-lift tabs-bottom w-full ">
+							<input type="radio" name="my_tabs_5" class="tab" aria-label="Login"  checked="checked"/>
+							<div class="tab-content bg-base-100 border-base-300 p-6">
+								<fieldset class="fieldset mt-2">
+									<legend class="fieldset-legend">Email</legend>
+									<label class="input">
+										<i class="" data-lucide="mail"></i>
+										<input id="loginEmail" class="input" type="email" placeholder="enter email"
+											onkeyup="checkValidEmailLogin(this)"/>
+										<span id="loginEmailValidator">
+
+										</span>
+									</label>
+								</fieldset>
+								<fieldset class="fieldset">
+									<legend class="fieldset-legend">Password</legend>
+									<label class="input">
+										<i data-lucide="lock"></i>
+										<input id="loginPass" class="input" type="password" placeholder="enter password"
+											onkeyup="checkValidPasswordLogin(this)" onchange="login()"/>
+										<span id="loginPassValidator">
+
+										</span>
+									</label>
+								</fieldset>
+
+								<div class="mt-4 ">
+									<button id="btnLogin" class="btn btn-block btn-primary py-5">Login</button>
+								</div>
+								<div id="loginAlert" role="alert" class="alert alert-soft alert-error mt-4 hidden">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current"
+										fill="none" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+									</svg>
+									<span id="loginAlertContent"></span>
+								</div>
+
+							</div>
+
+							<input type="radio" name="my_tabs_5" class="tab" aria-label="Signup" />
+							<div class="tab-content bg-base-100 border-base-300 p-6">
+								<fieldset class="fieldset">
+									<legend class="fieldset-legend">Name</legend>
+									<label class="input">
+										<i data-lucide="user"></i>
+										<input id="signupName" class="input" type="text" required
+											placeholder="enter name" onkeyup="checkValidNameSignup(this)" />
+										<span id="signupEmailValidator">
+
+										</span>
+									</label>
+								</fieldset>
+								<fieldset class="fieldset">
+									<legend class="fieldset-legend">Email</legend>
+									<label class="input">
+										<i data-lucide="mail"></i>
+										<input id="singupEmail" class="input" type="email" required
+											placeholder="enter email" onkeyup="checkValidEmailSignup(this)" />
+										<span id="signupEmailValidator">
+
+										</span>
+									</label>
+								</fieldset>
+								<fieldset class="fieldset">
+									<legend class="fieldset-legend">Phone</legend>
+									<label class="input">
+										<i data-lucide="phone"></i>
+										<input id="signupPhone" class="input" type="text" required
+											placeholder="enter phone" onkeyup="checkValidPhoneSignup(this)" maxlength="10" onchange="signup()"/>
+										<span id="signupPhoneValidator">
+
+										</span>
+									</label>
+								</fieldset>
+								<div class="mt-4 ">
+									<button id="btnSignup" class="btn btn-block btn-primary py-5">Create Account</button>
+								</div>
+								<div id="signupAlertSuccess" role="alert"
+									class="alert alert-soft alert-success mt-4 hidden">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current"
+										fill="none" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+									</svg>
+									<span id="signupAlertSuccessContent"></span>
+								</div>
+								<div id="signupAlertError" role="alert"
+									class="alert alert-soft alert-error mt-4 hidden">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current"
+										fill="none" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+									</svg>
+									<span id="signupAlertErrorContent"></span>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	<script src="https://unpkg.com/lucide@latest"></script>
+
+
+	<script src="js/login.js"></script>
+	<script>
+		lucide.createIcons();
+	</script>
+
+</body>
+
+</html>

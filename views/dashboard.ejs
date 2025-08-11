@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+	<title>
+		<%= title %> - Thunderbolt
+	</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<%- include('components/styles.ejs'); -%>
+
+</head>
+
+<body>
+
+	<%- include('components/header.ejs'); -%>
+		<%- include('components/sidebar.ejs'); -%>
+
+			<div class="wrapper flex mt-18 ml-25 mr-5">
+
+
+				<div class="container flex-1 mx-auto">
+					<!-- Content goes here-->
+
+					<div class="card card-border w-full bg-base-100 shadow-xl">
+						<div class="card-body">
+							<h2 class="card-title">Welcome back, <%= user.displayName %>
+							</h2>
+							<p>Here is your dashboard overview.</p>
+
+						</div>
+					</div>
+					<div class="flex flex-row mt-5 gap-4">
+						<div class="basis-1/3">
+							<div class="card card-border bg-accent text-accent-content h-60">
+								<div class="card-body">
+									<h2 class="card-title"><i data-lucide="book-user"></i> Working Namelist</h2>
+									<p id="countNamelist" class="text-[60px] text-align-center font-bold"></p>
+									<div class="card-actions justify-end">
+										<a class="btn btn-square btn-ghost btn-primary" href="/namelist"><i data-lucide="arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="basis-1/3">
+							<div class="card card-border bg-info text-info-content h-60">
+								<div class="card-body">
+									<h2 class="card-title"><i data-lucide="eye"></i> KIV Namelist</h2>
+									<p id="countKIV" class="text-[60px] text-align-center font-bold"></p>
+									<div class="card-actions justify-end">
+										<a class="btn btn-square btn-ghost btn-primary" href="/kiv"><i data-lucide="arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="basis-1/3">
+							<div class="card card-border bg-secondary-content text-secondary h-60">
+								<div class="card-body">
+									<h2 class="card-title"><i data-lucide="snail"></i> Late Latifs</h2>
+									<p id="countLL" class="text-[60px] text-align-center font-bold"></p>
+									<div class="card-actions justify-end">
+										<a class="btn btn-square btn-ghost btn-primary" href="/latelatif"><i data-lucide="arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+
+
+					<!-- Content ends here-->
+				</div>
+			</div>
+
+			<%- include('components/scripts.ejs'); -%>
+			<script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>
