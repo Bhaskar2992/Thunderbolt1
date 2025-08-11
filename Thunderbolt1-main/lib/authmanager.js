@@ -2,17 +2,17 @@ const admin = require("firebase-admin");
 
 // Use environment variables for Firebase Admin SDK credentials
 const adminCredentials = {
-  type: process.env.FIREBASE_TYPE || "service_account",
-  project_id: process.env.FIREBASE_PROJECT_ID || "thunderbolt1-ca6a5",
-  private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
-  private_key: process.env.FIREBASE_PRIVATE_KEY ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n') : undefined,
-  client_email: process.env.FIREBASE_CLIENT_EMAIL,
-  client_id: process.env.FIREBASE_CLIENT_ID,
-  auth_uri: process.env.FIREBASE_AUTH_URI || "https://accounts.google.com/o/oauth2/auth",
-  token_uri: process.env.FIREBASE_TOKEN_URI || "https://oauth2.googleapis.com/token",
-  auth_provider_x509_cert_url: process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL || "https://www.googleapis.com/oauth2/v1/certs",
-  client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL,
-  universe_domain: process.env.FIREBASE_UNIVERSE_DOMAIN || "googleapis.com"
+  type: "service_account",
+  project_id: "thunderbolt1-ca6a5",
+  private_key_id: "ffb613faf754d7a82275a2e1d925c61e0ccea260",
+  private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIFb/uQ8JwhMR/\nHrFFONHVmBGCl+PZCP1+ss+x0LrD2tH/CiSxKIGwmy/7XHAwiBLfDHJ23wYLRNR1\n/MkRKEWrJON0DFIx92yAhsbTN5WCw4rzCKsMMQvl+5/TbuIw/09KPiaiiiC2u+64\nV+3eVAHqMhX4/SFx2DVOt+Mg4q0UzELxanzgg4OrM0FOSOgPk+6W+QBP2smNJOHI\nmBvYPmaWZTp/n7owywWZSfIzOry0qevVpwDmgieNAwfF1tyG6hJc0LR6IwqkGDys\ndiJtYxey9bpLai4QCQMZCXrTNAXQLryt3y/eSVdTLu3l10wWdkV9PslWCP0IUqns\nwaDMd1JDAgMBAAECggEACli9lReh7WmgM6alqhu3FiGH/kXWfXmuiie6/8n4bnpZ\nU6P1o8ehdT2BLLFqB8hxmWEuZiFAUcLcbcGFsEJx39jHfk/IzFasILVXgMKmE54D\nCHBRUA8VO25YpHlebwQ02HUAUHVuHaT4QkYhwdZ8Rt0SL87/NMDmeMyfjSrLooCa\nIs5UNybrzy9pHkwnZXUg28QuMtw28PY4qvtaHxxD+NGkPrv/nszWxdhDZIcpyzBj\nXfKqQyVGhjBwkmqHcOIUmqjvQSk8b0WsZcb6EQQhSN/QQN2PHcCzcgNfAGs4FuX5\n0MxNsqKGvaJY7DB2C6NxOmEDaa8DFObNeIaRGbOaqQKBgQDtK3e3HEoVxmsmAwjX\n0N7vZrKPYtD9royYvQyutNLY6XHqs1zneunk2S1p6DewtilIg7y1zZFfJJhaJcaO\n/2BwZEAu1Dh7ouRhnmJY0D0Oc+A7zRQohg9cWYFYv9UjpoQFy4fVsrkGQ66jM0wn\n0xbFW6wB8bdlSSkWSzg4IhZjnwKBgQDX+IYlg1ORijHDFkb16U8STsou06BIuKmJ\nPMtS95QcgzTzKMb9Gk+Y9MJSTHsNoR+Ha784dCaEAqtIHMUnH+9YpIZoB6BCXslf\nD+/+fckGhtaPluZz4I5fKMVRdEUWH9eHw+PkVbKB2KdNmlebTeleTatrj1f0qmXn\nYN95t4tu3QKBgQCdYJqwBzWh/WhccOcNTqygb6VNQGUt8QWa1Nf1lkfTaBUPiLW9\nZPKPyQ05mb5apIYAeGpguWgdmkr+htKbURrNebidWnWglRa3MEJSbNwXGw1QoWUe\n/tZykXIjUig83+H7dnNMeqwMXB0mboO6aXhSveIF6D+qFkINaRyFIxl4QQKBgCMb\nHcspPsNQoGgizeQZSaYjMpBMDCjmA4DwZeiVn/jGhyvje/0WcsvdNV0lW3dKspJT\nvGCT2NLqkCcHrjB+62wQSlzMqItBVyBhudQ3ZB7weh4bHFjHrrzfJrvn13cSM/m4\nqOmr2Hls2z0tEoKHNqECpRO12ElIDYp/37OsVzjtAoGBALblLx5ISAGMJtzZAizS\nyfDM7x0LughOxGDai+qC+pZmaI86oFb+6YdYulwxJDMtMTx4Tln4SwIcujNGIIYT\nv+0msJfAoM5hwbDKmN98Ycw2MHQTt9QqAywZzttpQQ/Fk9GhIwWBS8rjna55CwlJ\nWCbPEho/fvhzqkdDvie18+Cr\n-----END PRIVATE KEY-----\n",
+  client_email: "firebase-adminsdk-fbsvc@thunderbolt1-ca6a5.iam.gserviceaccount.com",
+  client_id: "116062581017266602926",
+  auth_uri: "https://accounts.google.com/o/oauth2/auth",
+  token_uri: "https://oauth2.googleapis.com/token",
+  auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+  client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40thunderbolt1-ca6a5.iam.gserviceaccount.com",
+  universe_domain: "googleapis.com"
 };
 
 admin.initializeApp({
@@ -22,15 +22,15 @@ admin.initializeApp({
 const firebase = require("firebase/app");
 const { getAuth, signInWithEmailAndPassword } = require("firebase/auth");
 
-// Use environment variables for Firebase Web SDK configuration
+// Firebase Web SDK configuration
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY || "AIzaSyCwJBldj_gqhU6FSIhRmw6FxroorEasgJE",
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN || "thunderbolt1-ca6a5.firebaseapp.com",
-  projectId: process.env.FIREBASE_PROJECT_ID || "thunderbolt1-ca6a5",
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET || "thunderbolt1-ca6a5.firebasestorage.app",
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || "179073228948",
-  appId: process.env.FIREBASE_APP_ID || "1:179073228948:web:6679c904af018cb62cd481",
-  measurementId: process.env.FIREBASE_MEASUREMENT_ID || "G-3YRV3ESYF1"
+  apiKey: "AIzaSyCwJBldj_gqhU6FSIhRmw6FxroorEasgJE",
+  authDomain: "thunderbolt1-ca6a5.firebaseapp.com",
+  projectId: "thunderbolt1-ca6a5",
+  storageBucket: "thunderbolt1-ca6a5.firebasestorage.app",
+  messagingSenderId: "179073228948",
+  appId: "1:179073228948:web:6679c904af018cb62cd481",
+  measurementId: "G-3YRV3ESYF1"
 };
 
 // Initialize Firebase
