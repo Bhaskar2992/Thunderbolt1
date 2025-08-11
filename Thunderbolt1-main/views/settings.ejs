@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+	<title><%= title %> - Thunderbolt</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<%- include('components/styles.ejs'); -%>
+
+</head>
+
+<body>
+
+	<%- include('components/header.ejs'); -%>
+	<%- include('components/sidebar.ejs'); -%>
+
+		<div class="wrapper flex mt-18 ml-25 mr-5">
+				<div class="flex-1 mx-1">
+					<!-- Content goes here-->
+					 
+					<div class="card card-border w-full bg-base-100 shadow-xl">
+						<div class="card-body">
+							<div class="card-body">
+							
+                                <p>Here is your settings overview.</p>
+                                
+                            </div>
+						</div>
+					</div>
+
+					<!-- Content ends here-->
+				</div>
+		</div>
+
+		<%- include('components/scripts.ejs'); -%>
+
+</body>
+
+</html>
