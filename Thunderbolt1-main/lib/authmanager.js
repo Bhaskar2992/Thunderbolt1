@@ -15,9 +15,15 @@ const adminCredentials = {
   universe_domain: "googleapis.com"
 };
 
-admin.initializeApp({
-  credential: admin.credential.cert(adminCredentials),
-});
+// Initialize Firebase Admin SDK with error handling
+try {
+  admin.initializeApp({
+    credential: admin.credential.cert(adminCredentials),
+  });
+  console.log("✅ Firebase Admin SDK initialized successfully");
+} catch (error) {
+  console.log("⚠️ Firebase Admin SDK already initialized or error:", error.message);
+}
 
 const firebase = require("firebase/app");
 const { getAuth, signInWithEmailAndPassword } = require("firebase/auth");
@@ -33,9 +39,31 @@ const firebaseConfig = {
   measurementId: "G-3YRV3ESYF1"
 };
 
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const auth = getAuth();
+console.log("🔧 Firebase Config:", {
+  apiKey: firebaseConfig.apiKey ? "SET" : "NOT SET",
+  authDomain: firebaseConfig.authDomain,
+  projectId: firebaseConfig.projectId,
+  appId: firebaseConfig.appId
+});
+
+// Initialize Firebase Web SDK with error handling
+let app;
+let auth;
+try {
+  app = firebase.initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  console.log("✅ Firebase Web SDK initialized successfully");
+} catch (error) {
+  console.log("⚠️ Firebase Web SDK error:", error.message);
+  // Try to get existing app
+  try {
+    app = firebase.getApp();
+    auth = getAuth(app);
+    console.log("✅ Using existing Firebase app");
+  } catch (getAppError) {
+    console.log("❌ Failed to get existing Firebase app:", getAppError.message);
+  }
+}
 
 const db = admin.firestore();
 
@@ -65,32 +93,37 @@ class AuthManager {
   async signup(req) {
     const { name, email, phone } = req.body;
     var result = 0;
-    await admin
-      .auth()
-      .createUser({
+    
+    console.log("🚀 Starting signup process for:", email);
+    console.log("📧 Email:", email);
+    console.log("📱 Phone:", phone);
+    console.log("👤 Name:", name);
+    
+    try {
+      const userRecord = await admin.auth().createUser({
         email: email,
         emailVerified: false,
         phoneNumber: "+91" + phone.toString(),
         password: "MAXOUT",
         displayName: name,
         disabled: false,
-      })
-      .then(async (userRecord) => {
-        // See the UserRecord reference doc for the contents of userRecord.
-        // console.log(userRecord);
-        await db.collection("users")
-          .doc(userRecord.uid.toString())
-          .set({ avatarId: 1 , countNL : 0, countKIV : 0, countLL : 0});
-        // req.session.userId = userRecord;
-        result = 1;
-        // res.redirect("/dashboard");
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        result = error.message;
-        // res.render("login");
       });
+      
+      console.log("✅ User created successfully:", userRecord.uid);
+      
+      await db.collection("users")
+        .doc(userRecord.uid.toString())
+        .set({ avatarId: 1, countNL: 0, countKIV: 0, countLL: 0 });
+      
+      console.log("✅ User document created in Firestore");
+      result = 1;
+      
+    } catch (error) {
+      console.log("❌ Signup error:", error.message);
+      console.log("❌ Error code:", error.code);
+      console.log("❌ Full error:", error);
+      result = error.message;
+    }
 
     return result;
   }
