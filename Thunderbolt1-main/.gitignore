@@ -2,5 +2,8 @@
 key.json
 key1.json
 .vercel
+.env
+.env.local
+.env.production
 
 out/
